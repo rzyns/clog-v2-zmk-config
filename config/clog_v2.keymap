@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define MAIN 0
 #define SYM 1
@@ -131,10 +132,10 @@
 
         NAV_layer {
             bindings = <
-                             &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &kp C_MUTE /*    */ &none    &none     &none     &none
-            &kp ESC &kp LEFT &kp DOWN     &kp UP       &kp RIGHT  &kp C_PP   /*    */ &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp ENTER &kp BACKSPACE
-                    &kp HOME &kp PG_DN    &kp PG_UP    &kp END    &kp C_STOP /*    */ &kp HOME &kp PG_DN &kp PG_UP &kp END   &sl FN
-                                          &none        &none      &none      /*    */ &none    &none     &none
+                             &kp C_VOL_DN &kp C_VOL_UP &reset       &bootloader  /*    */ &bootloader &reset    &none     &none
+            &kp ESC &kp LEFT &kp DOWN     &kp UP       &out OUT_USB &out OUT_BLE /*    */ &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &kp ENTER &kp BACKSPACE
+                    &kp HOME &kp PG_DN    &kp PG_UP    &kp END      &out OUT_TOG /*    */ &kp HOME    &kp PG_DN &kp PG_UP &kp END   &sl FN
+                                          &none        &none        &none        /*    */ &none       &none     &none
             >;
 
 			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
