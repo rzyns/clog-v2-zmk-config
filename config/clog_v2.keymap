@@ -99,10 +99,10 @@
 
         MAIN_layer {
             bindings = <
-                              &kp W        &kp E      &kp R             &kp T         /*    */ &kp Y         &kp U         &kp I       &kp O
-            &kp Q &mt LCTRL A &mt LSHIFT S &mt LALT D &mt LCMD F        &kp G         /*    */ &kp H         &mt LCMD J    &mt LALT K  &mt LSHIFT L &mt LCTRL SEMI &kp P
-                  &kp Z       &kp X        &mt RALT C &kp V             &kp B         /*    */ &kp N         &kp M         &mt RALT LT &kp GT       &kp SLASH
-                                           &none      &lt SYM SPACE     &lt NUM SPACE /*    */ &lt SYM SPACE &lt NUM SPACE &none
+                              &kp W        &kp E      &kp R             &kp T         /*    */ &kp Y         &kp U         &kp I          &kp O
+            &kp Q &mt LCTRL A &mt LSHIFT S &mt LALT D &mt LCMD F        &kp G         /*    */ &kp H         &mt LCMD J    &mt LALT K     &mt LSHIFT L &mt LCTRL SEMI &kp P
+                  &kp Z       &kp X        &mt RALT C &kp V             &kp B         /*    */ &kp N         &kp M         &mt RALT COMMA &kp DOT      &kp SLASH
+                                           &none      &lt NUM SPACE     &lt SYM SPACE /*    */ &lt NUM SPACE &lt SYM SPACE &none
             >;
 
 			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
@@ -113,7 +113,7 @@
                                    &kp AT_SIGN &kp HASH  &kp DOLLAR &kp PERCENT /*    */ &kp CARET   &kp AMPERSAND  &kp ASTERISK &kp UNDERSCORE
             &kp ESC      &kp TAB   &kp MINUS   &kp EQUAL &kp EXCL   &kp SEMI    /*    */ &kp BSLH    &kp GRAVE      &kp LPAR     &kp RPAR       &kp ENTER &kp BACKSPACE
                          &kp COMMA &kp DOT     &kp BSLH  &kp SQT    &kp GRAVE   /*    */ &kp PIPE    &kp LBKT       &kp RBKT     &kp LBRC       &kp RBRC
-                                               &none     &none      &mo NAV     /*    */ &none       &mo NAV        &none
+                                               &none     &trans     &mo NAV     /*    */ &trans      &mo NAV        &none
             >;
 
 			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
@@ -124,7 +124,7 @@
                              &kp LPAR  &kp LBRC &kp LBKT &none     /*    */ &kp EQUAL &kp N7 &kp N8 &kp N9
             &kp ESC  &kp TAB &kp UNDER &kp PLUS &kp RPAR &kp COLON /*    */ &kp MINUS &kp N4 &kp N5 &kp N6 &kp ENTER &kp BACKSPACE
                      &kp LT  &kp GT    &kp PIPE &kp DQT  &kp TILDE /*    */ &kp N0    &kp N1 &kp N2 &kp N3 &kp QMARK
-                                       &none    &mo NAV  &none     /*    */ &mo NAV   &none  &none
+                                       &none    &mo NAV  &trans    /*    */ &mo NAV   &trans  &none
             >;
 
 			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
