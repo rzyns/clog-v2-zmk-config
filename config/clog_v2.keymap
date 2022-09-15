@@ -7,7 +7,8 @@
 #define SYM 1
 #define NUM 2
 #define NAV 3
-#define FN 4
+#define RFN 4
+#define LFN 5
 
 &mt {
     flavor = "tap-preferred";
@@ -27,6 +28,14 @@
         };
     };
 
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <SYM NUM>;
+            then-layer = <NAV>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -38,7 +47,7 @@
                                            &none      &lt SYM SPACE     &lt NUM SPACE /*    */ &lt SYM SPACE &lt NUM SPACE &none
             >;
 
-			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
         };
 
         SYM_layer {
@@ -46,43 +55,54 @@
                                    &kp AT_SIGN &kp HASH  &kp DOLLAR &kp PERCENT /*    */ &kp CARET   &kp AMPERSAND  &kp ASTERISK &kp UNDERSCORE
             &kp ESC      &kp TAB   &kp MINUS   &kp EQUAL &kp EXCL   &kp SEMI    /*    */ &kp BSLH    &kp GRAVE      &kp LPAR     &kp RPAR       &kp ENTER &kp BACKSPACE
                          &kp COMMA &kp DOT     &kp BSLH  &kp SQT    &kp GRAVE   /*    */ &kp PIPE    &kp LBKT       &kp RBKT     &kp LBRC       &kp RBRC
-                                               &none     &mo NAV    &mo NAV     /*    */ &mo NAV     &mo NAV        &none
+                                               &trans    &trans     &trans     /*    */  &trans      &trans         &trans
             >;
 
-			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
         };
 
         NUM_layer {
             bindings = <
-                             &kp LPAR  &kp LBRC &kp LBKT &none     /*    */ &kp EQUAL &kp N7  &kp N8 &kp N9
-            &kp ESC  &kp TAB &kp UNDER &kp PLUS &kp RPAR &kp COLON /*    */ &kp MINUS &kp N4  &kp N5 &kp N6 &kp ENTER &kp BACKSPACE
-                     &kp LT  &kp GT    &kp PIPE &kp DQT  &kp TILDE /*    */ &kp N0    &kp N1  &kp N2 &kp N3 &kp QMARK
-                                       &none    &mo NAV  &mo NAV   /*    */ &mo NAV   &mo NAV &none
+                             &kp LPAR  &kp LBRC &kp LBKT &trans     /*    */ &kp EQUAL &kp N7  &kp N8 &kp N9
+            &kp ESC  &kp TAB &kp UNDER &kp PLUS &kp RPAR &kp COLON  /*    */ &kp MINUS &kp N4  &kp N5 &kp N6 &kp ENTER &kp BACKSPACE
+                     &kp LT  &kp GT    &kp PIPE &kp DQT  &kp TILDE  /*    */ &kp N0    &kp N1  &kp N2 &kp N3 &kp QMARK
+                                       &trans   &trans   &trans     /*    */ &trans    &trans  &trans
             >;
 
-			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
         };
 
         NAV_layer {
             bindings = <
-                             &kp C_VOL_DN &kp C_VOL_UP &reset       &bootloader  /*    */ &bootloader &reset    &none     &none
-            &kp ESC &kp LEFT &kp DOWN     &kp UP       &out OUT_USB &out OUT_BLE /*    */ &kp LEFT    &kp DOWN  &kp UP    &kp RIGHT &kp ENTER &kp BACKSPACE
-                    &kp HOME &kp PG_DN    &kp PG_UP    &kp END      &out OUT_TOG /*    */ &kp HOME    &kp PG_DN &kp PG_UP &kp END   &sl FN
-                                          &none        &none        &none        /*    */ &none       &none     &none
+                             &kp K_BACK   &kp K_FORWARD &trans       &trans     /*    */ &trans      &trans    &kp K_BACK &kp K_FORWARD
+            &kp ESC &kp TAB  &kp LEFT     &kp UP        &kp DOWN     &kp RIGHT  /*    */ &kp LEFT    &kp DOWN  &kp UP     &kp RIGHT &kp ENTER &kp BACKSPACE
+                    &sl LFN  &kp PG_DN    &kp PG_UP     &kp END      &trans     /*    */ &kp HOME    &kp PG_DN &kp PG_UP  &kp END   &sl RFN
+                                          &trans        &trans       &trans     /*    */ &trans      &trans    &trans
             >;
 
-			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
         };
 
-        FN_layer {
+        RFN_layer {
             bindings = <
-                            &none &none &none &none     &kp F12 &kp F7 &kp F8 &kp F9
-            &kp ESC &kp TAB &none &none &none &none     &kp F11 &kp F4 &kp F5 &kp F6 &kp ENTER &kp BACKSPACE
-                    &none   &none &none &none &none     &kp F10 &kp F1 &kp F2 &kp F3 &none
-                                  &none &none &none     &none   &none  &none
+                            &reset &bootloader  &none  &out OUT_TOG /*    */ &kp F12      &kp F7       &kp F8 &kp F9
+            &none   &none   &none  &none        &none  &out OUT_BLE /*    */ &kp F11      &kp F4       &kp F5 &kp F6 &none &none
+                    &none   &none  &none        &none  &out OUT_USB /*    */ &kp F10      &kp F1       &kp F2 &kp F3 &none
+                                   &none        &none  &none        /*    */ &out OUT_BLE &out OUT_USB &none
             >;
 
-			sensor-bindings = <&inc_dec_kp PG_DN PG_UP>;
+            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
+        };
+
+        LFN_layer {
+            bindings = <
+                            &kp F12  &kp F7   &kp F8       &kp F9         /*    */ &out OUT_TOG &none  &bootloader  &kp reset
+            &kp ESC &kp TAB &kp F11  &kp F4   &kp F5       &kp F6         /*    */ &out OUT_BLE &none  &none        &none     &kp ENTER &kp BACKSPACE
+                    &none   &kp F10  &kp F1   &kp F2       &kp F3         /*    */ &out OUT_USB &none  &none        &none     &none
+                                     &none    &out OUT_USB &out OUT_BLE   /*    */ &none        &none  &none 
+            >;
+
+            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
         };
     };
 };
