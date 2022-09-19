@@ -41,10 +41,10 @@
 
         MAIN_layer {
             bindings = <
-                              &kp W        &kp E      &kp R             &kp T         /*    */ &kp Y         &kp U         &kp I          &kp O
-            &kp Q &kp A       &kp S        &kp D      &kp F             &kp G         /*    */ &kp H         &kp J         &kp K          &kp L          &kp SEMI        &kp P
-                  &hm LCTRL Z &hm LSHIFT X &hm LALT C &hm LCMD V        &kp B         /*    */ &kp N         &hm LCMD M    &hm LALT COMMA &hm LSHIFT DOT &hm LCTRL SLASH
-                                           &none      &lt SYM SPACE     &lt NUM SPACE /*    */ &lt SYM SPACE &lt NUM SPACE &none
+                              &kp W        &kp E      &kp R             &kp T         /*    */ &kp Y             &kp U         &kp I          &kp O
+            &kp Q &hm LCTRL A &kp S        &kp D      &kp F             &kp G         /*    */ &kp H             &kp J         &kp K          &kp L          &kp LCTRL SEMI  &kp P
+                  &hm LCTRL Z &hm LSHIFT X &hm LALT C &hm LCMD V        &kp B         /*    */ &kp N             &hm LCMD M    &hm LALT COMMA &hm LSHIFT DOT &hm LCTRL SLASH
+                                           &none      &lt SYM SPACE     &lt NUM ENTER /*    */ &lt SYM BACKSPACE &lt NUM SPACE &none
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
@@ -52,10 +52,10 @@
 
         SYM_layer {
             bindings = <
-                                   &kp AT_SIGN &kp HASH  &kp DOLLAR &kp PERCENT /*    */ &kp CARET   &kp AMPERSAND  &kp ASTERISK &kp UNDERSCORE
-            &kp ESC      &kp TAB   &kp MINUS   &kp EQUAL &kp EXCL   &kp SEMI    /*    */ &kp BSLH    &kp GRAVE      &kp LPAR     &kp RPAR       &kp ENTER &kp BACKSPACE
-                         &kp COMMA &kp DOT     &kp BSLH  &kp SQT    &kp GRAVE   /*    */ &kp PIPE    &kp LBKT       &kp RBKT     &kp LBRC       &kp RBRC
-                                               &trans    &trans     &trans     /*    */  &trans      &trans         &trans
+                                    &kp AT_SIGN    &kp HASH       &kp DOLLAR   &kp PERCENT /*    */ &kp CARET   &kp AMPERSAND  &kp ASTERISK  &kp UNDERSCORE
+            &kp ESC &hm LCTRL TAB   &kp MINUS      &kp EQUAL      &kp EXCL     &kp SEMI    /*    */ &kp BSLH    &kp GRAVE      &kp LPAR      &kp RPAR        &hm LCTRL ENTER &kp BACKSPACE
+                    &hm LCTRL COMMA &hm LSHIFT DOT &hm LALT BSLH  &hm LCMD SQT &kp GRAVE   /*    */ &kp PIPE    &hm LCMD LBKT  &hm LALT RBKT &hm LSHIFT LBRC &hm LCTRL RBRC
+                                                   &trans         &trans       &trans      /*    */ &trans      &trans         &trans
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
@@ -63,10 +63,10 @@
 
         NUM_layer {
             bindings = <
-                             &kp LPAR  &kp LBRC &kp LBKT &trans     /*    */ &kp EQUAL &kp N7  &kp N8 &kp N9
-            &kp ESC  &kp TAB &kp UNDER &kp PLUS &kp RPAR &kp COLON  /*    */ &kp MINUS &kp N4  &kp N5 &kp N6 &kp ENTER &kp BACKSPACE
-                     &kp LT  &kp GT    &kp PIPE &kp DQT  &kp TILDE  /*    */ &kp N0    &kp N1  &kp N2 &kp N3 &kp QMARK
-                                       &trans   &trans   &trans     /*    */ &trans    &trans  &trans
+                                   &kp LPAR      &kp LBRC      &kp LBKT     &trans     /*    */ &kp EQUAL &kp N7  &kp N8 &kp N9
+            &kp ESC  &hm LCTRL TAB &kp UNDER     &kp PLUS      &kp RPAR     &kp COLON  /*    */ &kp MINUS &kp N4  &kp N5 &kp N6 &hm LCTRL ENTER &kp BACKSPACE
+                     &hm LCTRL LT  &hm LSHIFT GT &hm LALT PIPE &hm LCMD DQT &kp TILDE  /*    */ &kp N0    &kp N1  &kp N2 &kp N3 &hm LCTRL QMARK
+                                                 &trans        &trans       &trans     /*    */ &trans    &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
